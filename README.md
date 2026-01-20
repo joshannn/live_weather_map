@@ -22,7 +22,6 @@ The project uses the **Open-Meteo API** for live weather data and **GeoJSON dist
   * Wind speed
 * Automatic weather refresh every 30 minutes
 * Real-time weather fetch on hover
-* Resizable and maximizable application window
 * Optimized district geometry by merging GaPa/Nagarpalika into districts
 
 ---
