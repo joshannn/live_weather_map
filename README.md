@@ -14,7 +14,6 @@ The project uses the **Open-Meteo API** for live weather data and **GeoJSON dist
 
 * District-level weather visualization for Nepal
 * Temperature-based color gradient map
-* Smooth and coherent color blending
 * Hover tooltip showing:
 
   * District name
