@@ -1,30 +1,38 @@
-# live_weather_map
-Here is the content formatted specifically for a GitHub-ready `README.md` file. I have improved the hierarchy, added syntax highlighting for the code blocks, and used a clean structure for better readability.
+Live Weather Map of Nepal
+Overview
 
----
+Live Weather Map of Nepal is a desktop application built using Python and Pygame that visualizes real-time weather data across Nepal’s districts.
+Each district is color-coded based on temperature and displays detailed weather information on hover.
 
-```markdown
-# Live Weather Map of Nepal
+The project uses Open-Meteo API for live weather data and GeoJSON district boundaries for accurate geographic rendering.
 
-A real-time desktop visualization tool built with **Python** and **Pygame** that maps weather data across Nepal's districts using geographic data and live API integration.
+Features
 
-## Overview
-**Live Weather Map of Nepal** renders a dynamic map where each district is color-coded based on its current temperature. By hovering over a district, users can see a detailed breakdown of local conditions. The application uses the **Open-Meteo API** for data and **GeoJSON** for precise district boundaries.
+District-level weather visualization for Nepal
 
-## Features
-* **District-Level Visualization:** Detailed map of Nepal's 77 districts.
-* **Temperature Gradient:** Smooth, coherent color blending based on thermal data.
-* **Interactive Hover Tooltips:**
-    * District Name
-    * Temperature (°C)
-    * Current Weather Condition
-    * Wind Speed
-* **Live Updates:** Automatic weather refresh every 30 minutes.
-* **Responsive UI:** Resizable and maximizable application window.
-* **Data Optimization:** Pre-processed geometry that merges local levels (GaPa/NaPa) into unified districts for better performance.
+Temperature-based color gradient map
 
-## Project Structure
-```text
+Smooth and coherent color blending
+
+Hover tooltip showing:
+
+District name
+
+Temperature
+
+Weather condition
+
+Wind speed
+
+Automatic weather refresh every 30 minutes
+
+Real-time weather fetch on hover
+
+Resizable and maximizable application window
+
+Optimized district geometry by merging GaPa/NaPa into districts
+
+Project Structure
 live_weather/
 │
 ├── main.py                 # Main Pygame application loop
@@ -33,80 +41,107 @@ live_weather/
 ├── utils.py                # Color blending and helper functions
 │
 ├── district.geojson        # Original GaPa/Nagarpalika GeoJSON
-├── district_merged.geojson # Merged district-level GeoJSON (Generated)
+├── district_merged.geojson # Merged district-level GeoJSON
 │
-├── merge_gapa_to_district.py  # Script to preprocess geographic data
-└── README.md               # Project documentation
+├── merge_gapa_to_district.py  # One-time script to merge GaPa into districts
+├── README.md               # Project documentation
 
-```
+Requirements
 
-## Requirements
+Python 3.10 or newer
 
-* **Python 3.10+**
-* **Dependencies:**
-* `Pygame` (GUI and rendering)
-* `Requests` (API calls)
-* `GeoPandas`, `Shapely`, `Fiona` (Only for initial data merging)
+Pygame
 
+Requests
 
+GeoPandas (only required for merging GeoJSON, not for runtime)
 
-### Installation
+Install dependencies:
 
-```bash
 pip install pygame requests geopandas shapely fiona
 
-```
+GeoJSON Preparation (Important)
 
-## GeoJSON Preparation
+The provided district.geojson contains GaPa/Nagarpalika boundaries.
+To use district-level polygons, you must merge them once.
 
-The application requires a merged district file to function correctly. If you are starting from the raw GaPa/Nagarpalika data, you must merge them first.
+Merge GaPa to District
 
-1. **Merge GaPa to District:**
-Run the following command:
-```bash
+Run this command:
+
 python merge_gapa_to_district.py
 
-```
+
+This will generate:
+
+district_merged.geojson
 
 
-2. This generates `district_merged.geojson`, which the main application uses for rendering.
+The application uses this merged file.
 
-## Running the Application
+Running the Application
 
-Ensure `district_merged.geojson` is in the same directory as `main.py`, then run:
+Make sure district_merged.geojson is in the same folder as main.py.
 
-```bash
+Run:
+
 python main.py
 
-```
+Controls and Interaction
 
-### Controls
+Hover over a district to view weather details
 
-* **Mouse Hover:** View specific weather details for a district.
-* **Resize Window:** The map scales dynamically to fit the window.
-* **Legend:** Reference the color scale at the bottom/side for temperature ranges.
+Window can be resized or maximized
 
-## Data Sources
+Weather data refreshes automatically
 
-* **Weather:** [Open-Meteo API](https://open-meteo.com/) (No API key required).
-* **Geography:** District centroid coordinates are used for precise weather fetching.
+Legend shows temperature ranges and color meaning
 
-##  Known Limitations & Future Improvements
+Weather Data Source
 
-### Current Limitations
+Weather data is fetched from:
 
-* Requires an active internet connection for live data.
-* Fixed view (No zoom or pan support currently).
-* Fetch logic is tied to district centroids.
+Open-Meteo API
+https://open-meteo.com/
 
-## License
+No API key is required.
 
-This project is for educational purposes. GeoJSON data remains under the license of its respective providers.
+Color Logic
 
----
+Colors follow a continuous gradient from cold to hot
 
-**Developed by:** Joshan Dhakal
+Designed for visual coherence and readability
 
-**Location:** Nepal 🇳🇵
+Hover effect uses smooth blending instead of harsh highlighting
 
+Known Limitations
 
+Requires internet connection for live weather
+
+District centroid is used for weather fetching
+
+No zoom or pan support (planned improvement)
+
+Future Improvements
+
+Mouse wheel zoom and pan
+
+District labels on map
+
+Province-level toggle
+
+Weather parameter switching (rainfall, humidity)
+
+Offline caching
+
+Performance optimizations for low-end systems
+
+License
+
+This project is for educational and learning purposes.
+GeoJSON data sources remain under their respective licenses.
+
+Author
+
+Developed by Joshan Dhakal
+Nepal
