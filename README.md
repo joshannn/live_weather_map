@@ -55,7 +55,7 @@ live_weather/
 ### Install Dependencies
 
 ```bash
-pip install pygame requests geopandas shapely fiona
+pip install pygame requests geopandas 
 ```
 
 ---
