@@ -119,7 +119,6 @@ Weather data is fetched from:
 
 ## Color Logic
 
-* Continuous gradient from cold to hot temperatures
 * Designed for visual coherence and readability
 * Hover effects use smooth blending instead of harsh highlighting
 
